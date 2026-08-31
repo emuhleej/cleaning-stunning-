@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#00374b">
+    <meta name="description" content="A simple daily, weekly, and monthly home cleaning planner.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Home Reset">
+    <meta property="og:description" content="Simple cleaning, one day at a time.">
+    <meta property="og:url" content="https://emuhleej.github.io/cleaning-stunning-/">
+    <meta property="og:image" content="https://emuhleej.github.io/cleaning-stunning-/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Home Reset — Simple cleaning, one day at a time.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home Reset">
+    <meta name="twitter:description" content="Simple cleaning, one day at a time.">
+    <meta name="twitter:image" content="https://emuhleej.github.io/cleaning-stunning-/og.jpg">
+    <meta name="twitter:image:alt" content="Home Reset — Simple cleaning, one day at a time.">
+    <title>Home Reset | Cleaning Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">✓</span>
+          <div>
+            <p class="eyebrow">HOME RESET</p>
+            <h1>Small steps. Fresh space.</h1>
+          </div>
+        </div>
+        <p class="header-note">A simple rhythm for a calmer home.</p>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <section class="today-hero" aria-labelledby="today-heading">
+        <div>
+          <p class="date-line" id="today-date">Today</p>
+          <h2 id="today-heading">Your plan for today</h2>
+          <p class="hero-copy" id="today-summary">A few steady tasks are all you need.</p>
+        </div>
+        <div class="hero-progress">
+          <div class="progress-copy">
+            <span>Today’s progress</span>
+            <strong id="today-progress-text">0 of 0</strong>
+          </div>
+          <div class="progress-track" id="today-progress" role="progressbar" aria-label="Today’s task progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span class="progress-fill"></span>
+          </div>
+          <p class="save-note"><span class="save-dot" aria-hidden="true"></span>Saved automatically on this device</p>
+        </div>
+      </section>
+
+      <nav class="schedule-tabs" aria-label="Cleaning schedule" role="tablist">
+        <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-today" id="tab-today" data-tab="today">Today</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-weekly" id="tab-weekly" data-tab="weekly">Weekly</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-monthly" id="tab-monthly" data-tab="monthly">Monthly</button>
+      </nav>
+
+      <section class="tab-panel" id="panel-today" role="tabpanel" aria-labelledby="tab-today">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">ONE DAY AT A TIME</p>
+            <h2>Today’s checklist</h2>
+          </div>
+          <button class="text-button" id="reset-today" type="button">Reset today</button>
+        </div>
+        <div class="today-grid" id="today-grid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-weekly" role="tabpanel" aria-labelledby="tab-weekly" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">SUNDAY–THURSDAY</p>
+            <h2>Room-by-room week</h2>
+            <p>Five focused tasks each day. Friday and Saturday are for rest or catching up.</p>
+          </div>
+          <button class="text-button" id="reset-week" type="button">Reset week</button>
+        </div>
+        <div class="schedule-grid" id="weekly-grid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-monthly" role="tabpanel" aria-labelledby="tab-monthly" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">FOUR-WEEK ROTATION</p>
+            <h2>Monthly refresh</h2>
+            <p>One deeper focus each week keeps the bigger jobs manageable.</p>
+          </div>
+          <button class="text-button" id="reset-month" type="button">Reset month</button>
+        </div>
+        <div class="schedule-grid monthly-grid" id="monthly-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Home Reset · Small routines make a real difference.</p>
+    </footer>
+
+    <div class="status-message" id="status-message" role="status" aria-live="polite"></div>
+  </body>
+</html>
+
