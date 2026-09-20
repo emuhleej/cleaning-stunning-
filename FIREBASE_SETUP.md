@@ -7,10 +7,10 @@ Setup status (2026-09-20):
 - Registered web app: House Cleaning. Its public configuration is committed in `firebase-config.js`.
 - Email/Password Authentication: enabled.
 - Authorized GitHub Pages domain: `emuhleej.github.io` added.
-- Firestore: creation is pending approval of the permanent `nam5 (United States)` location. Proposed settings are Standard edition, `(default)` database ID, and production mode.
-- Database rules, live saving verification, and website publication: pending.
-
-Cloud saving is not live yet. The setup steps below also document how to reproduce
+- Firestore: Standard edition `(default)` database created in the permanent `nam5 (United States)` location using production mode.
+- Owner-only rules: published and verified in the live project.
+- Live checks: Email/Password account creation succeeded; signed-out Firestore access was denied; signed-in access was allowed. The temporary test account was deleted and no test document was created.
+- Website publication: pending merge of pull request #1. The setup steps below also document how to reproduce
 or complete this configuration.
 
 ## 1. Choose the Firebase project
