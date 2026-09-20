@@ -11,8 +11,9 @@ Home Reset is a simple, phone-friendly cleaning planner with:
 Cloud saving uses Firebase Authentication (email/password) and Cloud Firestore.
 The web configuration now points to the `github-projects-2b917` project and its
 House Cleaning app. Email/Password sign-in and the GitHub Pages domain are configured.
-Database creation, owner-only rules, and live verification are still pending; see
-[FIREBASE_SETUP.md](FIREBASE_SETUP.md). Cloud saving is not live yet.
+The Standard `(default)` Firestore database is active in `nam5 (United States)`,
+and the owner-only rules are published. Live Authentication and access-control checks
+passed. See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for operational details.
 
 Serve the folder over HTTP, for example with `python -m http.server 8081`.
 No build step is required. Run `npm test` for persistence tests and `npm run check`
