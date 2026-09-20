@@ -1,8 +1,17 @@
 # Connect cloud saving
 
-The app is prepared for Firebase **Authentication + Cloud Firestore**. Its actual
-Firebase project has not been connected yet: `firebase-config.js` is intentionally
-blank. The checklist continues saving on the current device until setup is complete.
+The app uses Firebase **Authentication + Cloud Firestore**.
+
+Setup status (2026-09-20):
+- Project: GitHub Projects (`github-projects-2b917`), Spark plan.
+- Registered web app: House Cleaning. Its public configuration is committed in `firebase-config.js`.
+- Email/Password Authentication: enabled.
+- Authorized GitHub Pages domain: `emuhleej.github.io` added.
+- Firestore: creation is pending approval of the permanent `nam5 (United States)` location. Proposed settings are Standard edition, `(default)` database ID, and production mode.
+- Database rules, live saving verification, and website publication: pending.
+
+Cloud saving is not live yet. The setup steps below also document how to reproduce
+or complete this configuration.
 
 ## 1. Choose the Firebase project
 
@@ -46,8 +55,8 @@ firebase login
 firebase deploy --only firestore:rules --project YOUR_PROJECT_ID
 ```
 
-Choose the real project ID explicitly. No project ID or credentials have been guessed
-or committed. A Firebase Storage bucket and Firebase Hosting are not required; the
+Choose the real project ID explicitly. The project ID comes from the Firebase console. Only public web configuration is
+committed; no admin credentials are stored in this repository. A Firebase Storage bucket and Firebase Hosting are not required; the
 website can keep using GitHub Pages.
 
 ## 4. Verify, then publish the website change
