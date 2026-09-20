@@ -202,7 +202,40 @@ input:focus-visible {
   height: 8px;
   border-radius: 50%;
   background: var(--ocean-blue);
+  flex: 0 0 auto;
 }
+
+[hidden] { display: none !important; }
+
+.save-note[data-state="offline"] .save-dot,
+.save-note[data-state="error"] .save-dot { background: var(--berry-red); }
+
+.cloud-panel {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.cloud-panel p { margin: 6px 0; }
+.cloud-panel summary { color: var(--deep-blue); font-weight: 750; cursor: pointer; padding-block: 7px; }
+.cloud-panel summary:focus-visible { outline: 3px solid var(--berry-red); outline-offset: 3px; }
+#account-form { display: grid; gap: 8px; max-width: 500px; margin-top: 14px; }
+#account-form label { color: var(--ink); font-weight: 650; }
+#account-form input { width: 100%; min-width: 0; min-height: 44px; padding: 8px 12px; border: 1px solid var(--ocean-blue); border-radius: 10px; background: var(--white); color: var(--ink); font-size: 1rem; }
+.account-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 6px; }
+.account-actions p { flex: 1 1 200px; min-width: 0; }
+.primary-button, .link-button { min-height: 44px; padding: 8px 14px; border-radius: 11px; cursor: pointer; font-weight: 750; }
+.primary-button { background: var(--deep-blue); color: var(--white); border: 1px solid var(--deep-blue); }
+.link-button { background: transparent; border: 0; color: var(--ocean-blue); text-decoration: underline; }
+.account-help { font-size: 0.83rem; }
+button:disabled { opacity: 0.6; cursor: wait; }
+#account-message:empty { display: none; }
+#sync-error { color: var(--ink); }
 
 .schedule-tabs {
   display: grid;

@@ -20,7 +20,7 @@
     <meta name="twitter:image:alt" content="Home Reset — Simple cleaning, one day at a time.">
     <title>Home Reset | Cleaning Planner</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+    <script type="module" src="app.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -51,8 +51,39 @@
           <div class="progress-track" id="today-progress" role="progressbar" aria-label="Today’s task progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
             <span class="progress-fill"></span>
           </div>
-          <p class="save-note"><span class="save-dot" aria-hidden="true"></span>Saved automatically on this device</p>
+          <p class="save-note" id="save-note"><span class="save-dot" aria-hidden="true"></span><span id="save-status" role="status" aria-live="polite">Saved on this device</span></p>
         </div>
+      </section>
+
+      <section class="cloud-panel" aria-label="Saved progress account">
+        <p id="cloud-unconfigured">Cloud saving isn’t connected yet. Your checkmarks are kept on this device.</p>
+        <details id="account-details" hidden>
+          <summary>Save across devices</summary>
+          <p>Sign in to keep your cleaning progress in your account. Use the same account on your phone and computer.</p>
+          <p class="account-help">Your existing device checkmarks are added to the first account you use here. Signing out returns to your separate device checklist.</p>
+          <form id="account-form">
+            <label for="account-email">Email address</label>
+            <input id="account-email" name="email" type="email" autocomplete="username" required maxlength="254" inputmode="email" autocapitalize="none" spellcheck="false">
+            <label for="account-password">Password</label>
+            <input id="account-password" name="password" type="password" autocomplete="current-password" required minlength="1" aria-describedby="password-help">
+            <p class="account-help" id="password-help" hidden>Use at least 6 characters, or more if your account requires it.</p>
+            <div class="account-actions">
+              <button class="primary-button" id="account-submit" type="submit">Sign in</button>
+              <button class="text-button" id="account-mode" type="button">Create an account</button>
+              <button class="link-button" id="reset-password" type="button">Forgot password?</button>
+            </div>
+            <p id="account-message" role="status" aria-live="polite"></p>
+          </form>
+        </details>
+        <div id="signed-in-controls" hidden>
+          <div class="account-actions">
+            <p id="account-identity"></p>
+            <button class="text-button" id="sign-out" type="button">Sign out</button>
+          </div>
+          <p class="account-help" id="pending-note" hidden>Some changes are waiting to upload. If you sign out, sign back into this account on this device to finish saving them.</p>
+        </div>
+        <p id="sync-error" role="status" aria-live="polite" hidden></p>
+        <button class="text-button" id="retry-sync" type="button" hidden>Retry cloud saving</button>
       </section>
 
       <nav class="schedule-tabs" aria-label="Cleaning schedule" role="tablist">

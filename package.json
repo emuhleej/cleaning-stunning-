@@ -1,0 +1,10 @@
+{
+  "name": "home-reset",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check app.js && node --check progress-store.js && node --check firebase-client.js && node --check cloud-controls.js"
+  },
+  "engines": { "node": ">=20" }
+}
