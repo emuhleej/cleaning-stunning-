@@ -71,10 +71,10 @@ test("an existing cloud reset wins over old device checkmarks", async () => {
   const item = store();
   item.set("daily", "daily", "make-bed", true);
   const remote = server();
-  remote.documents.set("alice/daily-2026-09-19", { "make-bed": false, "floor-check": true });
+  remote.documents.set("alice/daily-2026-09-19", { "make-bed": false, "ten-minute-tidy": true });
   connect(item, remote);
   await settled(item);
-  assert.deepEqual(item.completed("daily"), ["floor-check"]);
+  assert.deepEqual(item.completed("daily"), ["ten-minute-tidy"]);
 });
 
 test("guest progress survives reload and the correct daily, Sunday and monthly boundaries", () => {
@@ -124,13 +124,13 @@ test("two devices merge independent clicks and receive each other's progress", a
   connect(laptop, remote);
   await settled(phone, laptop);
   phone.set("daily", "daily", "make-bed", true);
-  laptop.set("daily", "daily", "floor-check", true);
+  laptop.set("daily", "daily", "ten-minute-tidy", true);
   await settled(phone, laptop);
-  assert.deepEqual(phone.completed("daily").sort(), ["floor-check", "make-bed"]);
-  assert.deepEqual(laptop.completed("daily").sort(), ["floor-check", "make-bed"]);
+  assert.deepEqual(phone.completed("daily").sort(), ["make-bed", "ten-minute-tidy"]);
+  assert.deepEqual(laptop.completed("daily").sort(), ["make-bed", "ten-minute-tidy"]);
   phone.set("daily", "daily", "make-bed", false);
   await settled(phone, laptop);
-  assert.deepEqual(laptop.completed("daily"), ["floor-check"]);
+  assert.deepEqual(laptop.completed("daily"), ["ten-minute-tidy"]);
 });
 
 test("a late acknowledgement cannot discard a newer click on the same task", async () => {
@@ -206,7 +206,7 @@ test("account switching never exposes the previous account or imports guest data
   item.set("daily", "daily", "make-bed", true);
   connect(item, remote, "alice");
   await settled(item);
-  item.set("daily", "daily", "floor-check", true);
+  item.set("daily", "daily", "ten-minute-tidy", true);
   await settled(item);
   item.setUser(null);
   assert.deepEqual(item.completed("daily"), ["make-bed"]); // Original guest checklist, not Alice's private change.
@@ -216,7 +216,7 @@ test("account switching never exposes the previous account or imports guest data
   assert.equal(remote.documents.has("bob/daily-2026-09-19"), false);
   connect(item, remote, "alice");
   await settled(item);
-  assert.deepEqual(item.completed("daily").sort(), ["floor-check", "make-bed"]);
+  assert.deepEqual(item.completed("daily").sort(), ["make-bed", "ten-minute-tidy"]);
 });
 
 test("late callbacks and writes from a previous account cannot mutate the current account", async () => {
@@ -230,13 +230,13 @@ test("late callbacks and writes from a previous account cannot mutate the curren
   remote.delay(() => pause);
   item.set("daily", "daily", "make-bed", true);
   connect(item, remote, "bob");
-  item.set("daily", "daily", "floor-check", true);
+  item.set("daily", "daily", "ten-minute-tidy", true);
   staleListener({ "make-bed": true });
   release();
   await settled(item);
   assert.equal(item.owner, "bob");
-  assert.deepEqual(item.completed("daily"), ["floor-check"]);
-  assert.deepEqual(remote.documents.get("bob/daily-2026-09-19"), { "floor-check": true });
+  assert.deepEqual(item.completed("daily"), ["ten-minute-tidy"]);
+  assert.deepEqual(remote.documents.get("bob/daily-2026-09-19"), { "ten-minute-tidy": true });
 });
 
 test("period rollover reconnects listeners without losing queued previous-period changes", async () => {
