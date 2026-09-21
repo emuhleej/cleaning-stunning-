@@ -2,9 +2,7 @@ export const dailyTasks = [
   { id: "make-bed", label: "Make the bed" },
   { id: "dishes-counters", label: "Clear dishes and wipe the counters" },
   { id: "ten-minute-tidy", label: "Do a 10-minute tidy" },
-  { id: "bathroom-wipe", label: "Wipe the bathroom sink" },
-  { id: "floor-check", label: "Check high-traffic floors" },
-  { id: "trash-laundry", label: "Check the trash and laundry" }
+  { id: "trash-laundry", label: "Take out the trash" }
 ];
 
 export const weeklySchedule = [
@@ -18,6 +16,7 @@ export const weeklySchedule = [
       { id: "sink-stovetop", label: "Clean the sink and stovetop" },
       { id: "appliances", label: "Wipe appliance fronts" },
       { id: "fridge-check", label: "Remove old food from the fridge" },
+      { id: "vacuum-rugs", label: "Vacuum rugs" },
       { id: "kitchen-floor", label: "Sweep and mop the floor" }
     ]
   },
@@ -37,14 +36,17 @@ export const weeklySchedule = [
   {
     key: "tuesday",
     day: "Tuesday",
-    room: "Bedrooms",
-    description: "Make each bedroom feel calm and ready for rest.",
+    room: "Bedrooms & Offices",
+    description: "Reset bedrooms and offices, then take care of the laundry.",
     tasks: [
       { id: "bed-linens", label: "Change or straighten the bed linens" },
       { id: "bedroom-dust", label: "Dust furniture and lamps" },
       { id: "clothes-away", label: "Put away clothes and shoes" },
       { id: "nightstands", label: "Clear and wipe nightstands" },
-      { id: "bedroom-floor", label: "Vacuum or sweep the floor" }
+      { id: "bedroom-floor", label: "Vacuum or sweep the floor" },
+      { id: "gather-laundry", label: "Gather and sort the laundry" },
+      { id: "wash-laundry", label: "Wash the next load" },
+      { id: "fold-away", label: "Fold and put away clean clothes" }
     ]
   },
   {
@@ -57,19 +59,17 @@ export const weeklySchedule = [
       { id: "living-dust", label: "Dust tables, shelves, and décor" },
       { id: "electronics", label: "Wipe screens and electronics" },
       { id: "upholstery", label: "Straighten and vacuum upholstery" },
-      { id: "living-floor", label: "Vacuum or sweep the floor" }
+      { id: "living-floor", label: "Vacuum or sweep the floor" },
+      { id: "trash-curb", label: "Take the trash to the curb" }
     ]
   },
   {
     key: "thursday",
     day: "Thursday",
-    room: "Floors & Laundry",
-    description: "Finish the cleaning week with fresh floors and clothes.",
+    room: "Floors",
+    description: "Finish the cleaning week with fresh floors.",
     tasks: [
-      { id: "gather-laundry", label: "Gather and sort the laundry" },
-      { id: "wash-laundry", label: "Wash the next load" },
-      { id: "fold-away", label: "Fold and put away clean clothes" },
-      { id: "vacuum-carpets", label: "Vacuum rugs and carpeted rooms" },
+      { id: "vacuum-carpets", label: "Vacuum rugs" },
       { id: "mop-hard-floors", label: "Sweep and mop hard floors" }
     ]
   }
@@ -112,7 +112,8 @@ export const monthlySchedule = [
       { id: "window-glass", label: "Clean the inside window glass" },
       { id: "window-sills", label: "Wipe window sills" },
       { id: "window-tracks", label: "Vacuum window tracks" },
-      { id: "screens-curtains", label: "Check screens and curtains" }
+      { id: "screens-curtains", label: "Check screens and curtains" },
+      { id: "ceiling-fans", label: "Clean ceiling fans" }
     ]
   },
   {
