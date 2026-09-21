@@ -124,7 +124,7 @@ function renderToday() {
     key: "daily",
     kicker: "Every day",
     title: "Everyday reset",
-    description: "Six small tasks to keep the house moving.",
+    description: "Four small tasks to keep the house moving.",
     tasks: dailyTasks,
     current: true
   }));
